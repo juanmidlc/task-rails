@@ -10,11 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_11_214129) do
+ActiveRecord::Schema.define(version: 2019_06_12_215052) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name", null: false
     t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sessions", force: :cascade do |t|
+    t.text "description", null: false
+    t.datetime "start_at", null: false
+    t.datetime "expires_at", null: false
+    t.boolean "finished", default: false
+    t.integer "session_duration"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -29,7 +39,9 @@ ActiveRecord::Schema.define(version: 2019_06_11_214129) do
     t.integer "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "session_id"
     t.index ["category_id"], name: "index_tasks_on_category_id"
+    t.index ["session_id"], name: "index_tasks_on_session_id"
   end
 
 end
