@@ -37,7 +37,7 @@ class SessionsController < ApplicationController
 
     protected
     def session_params
-        params[:session].permit(:description, :start_at, :expires_at, :finished, :session_duration, :created_at, :updated_at)
+        params[:session].permit(:description, :start_at, :expires_at, :finished, :session_duration)
     end
 
 end
