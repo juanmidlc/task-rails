@@ -10,11 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_12_215052) do
+ActiveRecord::Schema.define(version: 2019_06_14_222926) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name", null: false
     t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "categories_profiles", id: false, force: :cascade do |t|
+    t.integer "category_id"
+    t.integer "profile_id"
+    t.index ["category_id"], name: "index_categories_profiles_on_category_id"
+    t.index ["profile_id"], name: "index_categories_profiles_on_profile_id"
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "age", default: 0
+    t.integer "occupation", default: 0
+    t.string "user", null: false
+    t.string "password", null: false
+    t.time "start_at", null: false
+    t.time "finish_at", null: false
+    t.integer "points", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

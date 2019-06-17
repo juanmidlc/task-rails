@@ -1,7 +1,12 @@
 class TasksController < ApplicationController
 
     def index
-        tasks = Task.all
+        if params[:session_id]
+            session = Session.find(params[:session_id])
+            tasks session.tasks
+        else
+            tasks = Task.all
+        end
         render status: 200, json: tasks
     end
 
