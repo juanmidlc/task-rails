@@ -6,4 +6,5 @@ Rails.application.routes.draw do
     resources :tasks, only: %i[index]
   end
   resources :profiles
+  resources :time_entries
 end

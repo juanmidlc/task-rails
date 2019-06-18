@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_14_222926) do
+ActiveRecord::Schema.define(version: 2019_06_17_181509) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name", null: false
@@ -62,6 +62,17 @@ ActiveRecord::Schema.define(version: 2019_06_14_222926) do
     t.integer "session_id"
     t.index ["category_id"], name: "index_tasks_on_category_id"
     t.index ["session_id"], name: "index_tasks_on_session_id"
+  end
+
+  create_table "time_entries", force: :cascade do |t|
+    t.string "trackable_type"
+    t.integer "trackable_id"
+    t.bigint "elapsed_time", default: 0
+    t.datetime "starting_time", null: false
+    t.datetime "ending_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["trackable_type", "trackable_id"], name: "index_time_entries_on_trackable_type_and_trackable_id"
   end
 
 end
