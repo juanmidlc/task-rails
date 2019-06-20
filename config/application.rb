@@ -15,5 +15,8 @@ module Project1
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+    config.api_only = true
+    config.debug_exception_response_format = :default
+    config.debug_exception_response_format = :api
   end
 end
