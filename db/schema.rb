@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_19_210829) do
+ActiveRecord::Schema.define(version: 2019_07_15_222534) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name", null: false
@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 2019_06_19_210829) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "session_id"
+    t.datetime "start_at"
     t.index ["category_id"], name: "index_tasks_on_category_id"
     t.index ["session_id"], name: "index_tasks_on_session_id"
   end

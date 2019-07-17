@@ -42,6 +42,6 @@ class TasksController < ApplicationController
 
     protected
     def task_params
-        params[:task].permit(:name, :description, :finished, :priority, :color, :expires_at, :category_id, :created_at, :updated_at, :session_id)
+        params[:task].permit(:name, :description, :start_at , :finished, :priority, :color, :expires_at, :category_id, :created_at, :updated_at, :session_id)
     end
 end
