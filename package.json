@@ -1,5 +1,7 @@
 {
   "name": "project-1",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "@nuxtjs/svg-sprite": "^0.2.1"
+  }
 }
