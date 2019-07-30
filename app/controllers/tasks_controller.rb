@@ -7,7 +7,7 @@ class TasksController < ApplicationController
         else
             tasks = Task.all
         end
-        render status: 200, json: tasks
+        render status: 200, json: tasks, each_serializer: TaskSerializer
     end
 
     def show
